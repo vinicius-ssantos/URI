@@ -12,7 +12,7 @@ public class MainTeste {
 //        }
         Scanner scan = new Scanner(System.in);
         var string = "Texto #3";
-        for (int i = 0; i < string.length (); ++i) {
+        for (int i = 0; i < string.length(); ++i) {
             char c = string.charAt(i);
             String s = String.valueOf(c);
 

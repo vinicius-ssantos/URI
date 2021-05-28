@@ -5,12 +5,10 @@ import java.util.Scanner;
 
 
 class Main {
-
-    static int total = 2;
-    static double totalDeCoelhos, totalDeRatos, totalDeSapos = 1;
-    static char por = '%';
-
     public static void main(String[] args) {
+        int total = 2;
+        double totalDeCoelhos, totalDeRatos, totalDeSapos = 1;
+        char por = '%';
         total =0;
         totalDeCoelhos = 0;
         totalDeRatos = 0;
@@ -19,8 +17,18 @@ class Main {
         int entrada = scan.nextInt();
         for (int x = 0; x < entrada; x++) {
             int quantidade = scan.nextInt();
-            String arr = scan.next();
-            tipoCobaia(quantidade, arr);
+            char[] tipo =  Character.toChars((scan.next().charAt(0)));
+
+            if (tipo[0]=='\u0043'){
+                totalDeCoelhos += quantidade;
+                total += quantidade;
+            }else if (tipo[0]=='\u0052'){
+                totalDeRatos += quantidade;
+                total += quantidade;
+            }else if (tipo[0]=='\u0053'){
+                totalDeSapos += quantidade;
+                total += quantidade;
+            }
         }
         double porC = (totalDeCoelhos / total)*100;
         double porR = (totalDeRatos / total)*100;
@@ -37,22 +45,27 @@ class Main {
         System.out.println(porcentagemR);
         System.out.println(porcentagemS);
 
-    }
 
-    public static void tipoCobaia(int qtdCobaia, String tipo) {
-        switch (tipo) {
-            case "R":
-                totalDeRatos += qtdCobaia;
-                total += qtdCobaia;
-                break;
-            case "C":
-                totalDeCoelhos += qtdCobaia;
-                total += qtdCobaia;
-                break;
-            case "S":
-                totalDeSapos += qtdCobaia;
-                total += qtdCobaia;
-                break;
-        }
     }
 }
+
+
+
+        /*
+        public  void tipoCobaia(int qtdCobaia, Character tipo) {
+            switch (tipo) {
+                case '\u0052':
+                    totalDeRatos += qtdCobaia;
+                    total += qtdCobaia;
+                    break;
+                case '\u0043':
+                    totalDeCoelhos += qtdCobaia;
+                    total += qtdCobaia;
+                    break;
+                case '\u0053':
+                    totalDeSapos += qtdCobaia;
+                    total += qtdCobaia;
+                    break;
+            }
+        }
+        */
